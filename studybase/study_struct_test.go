@@ -2,6 +2,8 @@ package studybase
 
 import "testing"
 
-func TestProcessPerson(t *testing.T) {
-	ProcessPerson()
+func TestBuildPerson(t *testing.T) {
+	person := BuildPerson()
+	t.Log(person.toString())
 }
+
