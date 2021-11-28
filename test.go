@@ -4,20 +4,26 @@ import (
 	"fmt"
 )
 
+type Data interface {
+	Value() [2]byte
+}
+
+type data struct {
+	value [2]byte
+}
+
+func (d *data) Value() [2]byte {
+	return d.value
+}
+
 func main()  {
-	nums := []int{1, 2, 3}
-	fmt.Println(nums)
-	swapNum(nums)
-	fmt.Println(nums)
-}
-
-func swapNum(nums []int) {
-	for i, j := 0, len(nums) - 1; i < j; i, j = i + 1, j - 1 {
-		nums[i], nums[j] = nums[j], nums[i]
+	var num uint16
+	nums := make([]int, 10)
+	for i := 0; i < 10 ; i++ {
+		nums[i] = i
 	}
+	num = num - 1
+	fmt.Println(nums[num % 10])
+	num = num + 1
+	fmt.Println(nums[num % 10])
 }
-
-func addNum(nums []int, num int) {
-	nums = append(nums, num)
-}
-
